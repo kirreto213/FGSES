@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULAIRE DE PRÉFÉRENCES – VISITES AU CAMPUS (Étape par étape)</title>
+    <link rel="stylesheet" href="style55.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <header class="page-header">
+        <div class="header-content">
+            <div class="header-text">
+                <h1>FORMULAIRE DE PRÉFÉRENCES – VISITES AU CAMPUS</h1>
+                <p class="subtitle">(À destination des professeurs non-résidents)</p>
+            </div>
+        </div>
+        <p class="intro-paragraph">Ce formulaire a pour objectif de recueillir vos préférences en matière de logistique et d'organisation pédagogique dans le cadre de vos séjours d'enseignement sur le campus.</p>
+    </header>
+
+    <div class="container">
+        <form id="campusVisitForm">
+            <div class="step-indicator" id="stepIndicator">
+                <span class="step active" data-step-index="0">1</span>
+                <span class="step" data-step-index="1">2</span>
+                <span class="step" data-step-index="2">3</span>
+                <span class="step" data-step-index="3">4</span>
+                <span class="step" data-step-index="4">5</span>
+                <span class="step" data-step-index="5">6</span> <span class="step" data-step-index="6">7</span> <span class="step" data-step-index="7">8</span> </div>
+
+               <div class="progress-container">
+                   <div class="progress-bar" id="progressBar"></div>
+                   
+               </div>
+
+            <div class="form-step" data-step="1">
+                <section class="form-section">
+                    <h2><i class="icon-person"></i> 1. Informations personnelles et cours concerné(s)</h2>
+                    <div class="grid-container">
+                        <div class="grid-column">
+                            <h3><i class="icon-person"></i> Informations personnelles</h3>
+                            <label for="fullName">Nom et Prénom :</label>
+                            <input type="text" id="fullName" name="fullName" required>
+
+                            <label for="email">Email :</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="grid-column">
+                            <h3><i class="icon-book"></i> Cours concerné(s)</h3>
+                            <label for="courseTitle">Code / Intitulé du ou des cours :</label>
+                            <input type="text" id="courseTitle" name="courseTitle" placeholder="Ex: MAT101 - Mathématiques avancées" required>
+                        </div>
+                    </div>
+                </section>
+                <div class="buttons-container">
+                    <button type="button" class="next-step-btn">Suivant</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="2" style="display: none;">
+                <section class="form-section">
+                    <h2><i class="icon-trip"></i> 2. Type de trajet et format de séjour</h2>
+                    <p>Veuillez cocher l'option correspondant à votre situation :</p>
+
+                    <div class="radio-card-group">
+                        <label class="radio-card">
+                            <input type="radio" id="shortTrip" name="tripType" value="short" required>
+                            <div class="radio-card-content">
+                                <h3>Court trajet (&lt; 6h)</h3>
+                                <p>2 à 3 séjours par semestre, durée de chaque séjour : environ 6 jours (mercredi à mercredi).</p>
+                                <p>Format proposé :</p>
+                                <ul>
+                                    <li>2 sessions principales de 3 heures</li>
+                                    <li>2 sessions de laboratoire (TDs) de 2 heures</li>
+                                </ul>
+                            </div>
+                        </label>
+
+                        <label class="radio-card">
+                            <input type="radio" id="longTrip" name="tripType" value="long">
+                            <div class="radio-card-content">
+                                <h3>Long trajet (≥ 6h)</h3>
+                                <p>1 séjour par semestre, durée : environ 13 jours (jeudi à mardi de la troisième semaine).</p>
+                                <p>Format proposé :</p>
+                                <ul>
+                                    <li>3 sessions principales de 3 heures</li>
+                                    <li>3 sessions de laboratoire (TDs) de 2 heures</li>
+                                </ul>
+                            </div>
+                        </label>
+                    </div>
+                </section>
+                <div class="buttons-container">
+                    <button type="button" class="prev-step-btn">Précédent</button>
+                    <button type="button" class="next-step-btn">Suivant</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="3" style="display: none;">
+                <section class="form-section">
+                    <h2><i class="icon-calendar"></i> 3. Disponibilités</h2>
+                    <label for="stay1Dates">Séjour n°1 – Dates préférées (Début et Fin) :</label>
+                    <input type="text" id="stay1Dates" name="stay1Dates" class="date-range-picker" placeholder="Sélectionnez une période" required><br>
+
+                    <div id="additionalStays" class="dynamic-field-container" style="display: none;">
+                        <label for="stay2Dates">Séjour n°2 (si applicable) – Dates préférées (Début et Fin) :</label>
+                        <input type="text" id="stay2Dates" name="stay2Dates" class="date-range-picker" placeholder="Sélectionnez une période"><br>
+
+                        <label for="stay3Dates">Séjour n°3 (si applicable) – Dates préférées (Début et Fin) :</label>
+                        <input type="text" id="stay3Dates" name="stay3Dates" class="date-range-picker" placeholder="Sélectionnez une période"><br>
+                    </div>
+
+                    <label for="otherDatesComments">Autres propositions ou remarques sur les dates :</label>
+                    <textarea id="otherDatesComments" name="otherDatesComments" rows="4"></textarea>
+                </section>
+                <div class="buttons-container">
+                    <button type="button" class="prev-step-btn">Précédent</button>
+                    <button type="button" class="next-step-btn">Suivant</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="4" style="display: none;">
+                <section class="form-section">
+                    <h2>4. Aspects pédagogiques</h2>
+                    <label for="pedagogicalComments">Commentaires ou précisions concernant l'organisation pédagogique du séjour (format souhaité, articulation des séances, besoins spécifiques, etc.) :</label>
+                    <textarea id="pedagogicalComments" name="pedagogicalComments" rows="6"></textarea>
+                </section>
+                <div class="buttons-container">
+                    <button type="button" class="prev-step-btn">Précédent</button>
+                    <button type="button" class="next-step-btn">Suivant</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="5" style="display: none;">
+                <section class="form-section">
+                    <h2>5. Informations de voyage</h2>
+                    <label for="departureCity">Ville de départ :</label>
+                    <input type="text" id="departureCity" name="departureCity" required><br>
+
+                    <label for="departureAirport">Aéroport d'origine :</label>
+                    <select id="departureAirport" name="departureAirport" required>
+                        <option value="">Sélectionnez une ville de départ d'abord</option>
+                    </select><br>
+
+                    <p>Le billet d'avion sera réservé par notre département Achats. Merci d'indiquer toute contrainte spécifique (compagnie, escales, horaires, etc.) :</p>
+                    <textarea id="flightConstraints" name="flightConstraints" rows="4"></textarea>
+                </section>
+                <div class="buttons-container">
+                    <button type="button" class="prev-step-btn">Précédent</button>
+                    <button type="button" class="next-step-btn">Suivant</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="6" style="display: none;">
+    <section class="form-section">
+        <h2>6. Hébergement, Santé et Transport Local</h2>
+
+        <h3>Hébergement</h3>
+        <p>Souhaitez-vous séjourner à l'hôtel du campus ?</p>
+        <div class="radio-group radio-group-cards"> <input type="radio" id="hotelYes" name="campusHotel" value="yes" class="hidden-radio">
+            <label for="hotelYes" class="radio-card-mini">Oui</label>
+
+            <input type="radio" id="hotelNo" name="campusHotel" value="no" checked class="hidden-radio">
+            <label for="hotelNo" class="radio-card-mini">Non</label>
+        </div>
+        <hr> <h3>Santé et restrictions</h3>
+        <p>Avez-vous des allergies ou restrictions alimentaires ?</p>
+        <div class="radio-group">
+            <input type="radio" id="allergiesYes" name="allergies" value="yes">
+            <label for="allergiesYes">Oui</label>
+            <input type="radio" id="allergiesNo" name="allergies" value="no" checked>
+            <label for="allergiesNo">Non</label>
+        </div>
+        <div id="allergiesDetailsDiv" class="dynamic-field-container" style="display: none;">
+            <label for="allergiesSpecify">Si oui, merci de préciser :</label>
+            <textarea id="allergiesSpecify" name="allergiesSpecify" rows="2"></textarea>
+        </div>
+
+        <p>Y a-t-il des besoins médicaux ou précautions spécifiques à prendre en compte ?</p>
+        <div class="radio-group">
+            <input type="radio" id="medicalNeedsYes" name="medicalNeeds" value="yes">
+            <label for="medicalNeedsYes">Oui</label>
+            <input type="radio" id="medicalNeedsNo" name="medicalNeeds" value="no" checked>
+            <label for="medicalNeedsNo">Non</label>
+        </div>
+        <div id="medicalNeedsDetailsDiv" class="dynamic-field-container" style="display: none;">
+            <label for="medicalNeedsSpecify">Si oui, merci de détailler :</label>
+            <textarea id="medicalNeedsSpecify" name="medicalNeedsSpecify" rows="4"></textarea>
+        </div>
+
+        <hr> <h3>Transport local</h3>
+        <p>Souhaitez-vous bénéficier d'un transport depuis/vers l'aéroport ou votre lieu de résidence locale ?</p>
+        <div class="radio-group">
+            <input type="radio" id="localTransportYes" name="localTransport" value="yes">
+            <label for="localTransportYes">Oui</label>
+            <input type="radio" id="localTransportNo" name="localTransport" value="no" checked>
+            <label for="localTransportNo">Non</label>
+        </div>
+
+        <p>Avez-vous déjà un badge d'accès au campus (carte NAPS) ?</p>
+        <div class="radio-group">
+            <input type="radio" id="napsCardYes" name="napsCard" value="yes">
+            <label for="napsCardYes">Oui</label>
+            <input type="radio" id="napsCardNo" name="napsCard" value="no" checked>
+            <label for="napsCardNo">Non</label>
+        </div>
+    </section>
+    <div class="buttons-container">
+        <button type="button" class="prev-step-btn">Précédent</button>
+        <button type="button" class="next-step-btn">Suivant</button>
+    </div>
+</div>
+
+            <div class="form-step" data-step="7" style="display: none;">
+                <section class="form-section">
+                    
+                    <h2>7. Autres activités ou engagements durant le séjour</h2>
+                    <p>Merci de préciser la nature de l'activité et le jour prévu :</p>
+                    <textarea id="additionalComments" name="additionalComments" rows="6"></textarea>
+                </section>
+                <div class="buttons-container">
+                    <button type="button" class="prev-step-btn">Précédent</button>
+                    <button type="button" class="next-step-btn">Suivant</button>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="8" style="display: none;">
+                <section class="form-section">
+                    <h2>8. Observations ou commentaires complémentaires</h2>
+                    <textarea id="otherActivities" name="otherActivities" rows="4"></textarea>
+                </section>
+                <div class="buttons-container">
+                    <button type="button" class="prev-step-btn">Précédent</button>
+                    <button type="submit">Soumettre le formulaire</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <script src="script55.js"></script>
+</body>
+</html>
